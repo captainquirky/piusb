@@ -29,7 +29,7 @@ echo "Creating the USB stick storage. This might take some time!"
 echo "=========================================================="
 echo ""
 echo ""
-dd bs=1M if=/dev/zero of=/piusb.bin count=1024
+dd bs=1M if=/dev/zero of=/piusb.bin count=102400
 mkdosfs /piusb.bin -F 32 --mbr=yes -n PIUSB
 echo ""
 echo ""
