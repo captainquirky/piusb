@@ -65,9 +65,9 @@ echo ""
 echo "Creating share"
 echo "=========================================================="
 echo ""
-echo "[usbstick]" >> /etc/samba/smb.conf
+echo "[wifistorage]" >> /etc/samba/smb.conf
 echo "browseable = yes" >> /etc/samba/smb.conf
-echo "path = /mnt/usbstick" >> /etc/samba/smb.conf
+echo "path = /mnt/wifistorage" >> /etc/samba/smb.conf
 echo "guest ok = yes" >> /etc/samba/smb.conf
 echo "read only = no" >> /etc/samba/smb.conf
 echo "create mask = 0777" >> /etc/samba/smb.conf
