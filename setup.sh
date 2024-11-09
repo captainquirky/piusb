@@ -15,7 +15,7 @@ if [[ $EUID -ne 0 ]]; then
     exit
 fi
 
-wget https://raw.githubusercontent.com/omiq/piusb/main/usb_share_watchdog.py -O usb_share_watchdog.py
+wget https://raw.githubusercontent.com/captainquirky/piusb/main/usb_share_watchdog.py -O usb_share_watchdog.py
 
 echo "dtoverlay=dwc2" >> /boot/config.txt
 echo "dwc2" >> /etc/modules
