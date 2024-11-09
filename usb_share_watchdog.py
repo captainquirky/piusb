@@ -8,9 +8,11 @@ CMD_MOUNT = "modprobe g_mass_storage file=/piusb.bin stall=0 ro=0"
 CMD_UNMOUNT = "modprobe -r g_mass_storage"
 CMD_SYNC = "sync"
 
-WATCH_PATH = "/mnt/wifistorage"
+WATCH_PATH = "/mnt/camerabackup"
 ACT_EVENTS = [DirDeletedEvent, DirMovedEvent, FileDeletedEvent, FileModifiedEvent, FileMovedEvent]
 ACT_TIME_OUT = 30
+
+#add code for syncing to another folder
 
 class DirtyHandler(FileSystemEventHandler):
     def __init__(self):
