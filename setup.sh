@@ -29,7 +29,7 @@ echo "Creating the USB stick storage. This might take some time!"
 echo "=========================================================="
 echo ""
 echo ""
-dd bs=1M if=/dev/zero of=/piusb.bin count=102400
+dd bs=1M if=/dev/zero of=/piusb.bin count=32768
 mkdosfs /piusb.bin -F 32 --mbr=yes -n PIUSB
 echo ""
 echo ""
@@ -43,9 +43,9 @@ echo ""
 echo "Mounting the storage"
 echo "=========================================================="
 echo ""
-mkdir /mnt/usbstick
-chmod +w /mnt/usbstick
-echo "/piusb.bin /mnt/usbstick vfat rw,users,user,exec,umask=000 0 0" >> /etc/fstab
+mkdir /mnt/camerabackup
+chmod +w /mnt/camerabackup
+echo "/piusb.bin /mnt/camerabackup vfat rw,users,user,exec,umask=000 0 0" >> /etc/fstab
 mount -a
 sudo modprobe g_mass_storage file=/piusb.bin stall=0 ro=0
 
@@ -65,9 +65,9 @@ echo ""
 echo "Creating share"
 echo "=========================================================="
 echo ""
-echo "[wifistorage]" >> /etc/samba/smb.conf
+echo "[camerabackup]" >> /etc/samba/smb.conf
 echo "browseable = yes" >> /etc/samba/smb.conf
-echo "path = /mnt/wifistorage" >> /etc/samba/smb.conf
+echo "path = /mnt/camerabackup" >> /etc/samba/smb.conf
 echo "guest ok = yes" >> /etc/samba/smb.conf
 echo "read only = no" >> /etc/samba/smb.conf
 echo "create mask = 0777" >> /etc/samba/smb.conf
